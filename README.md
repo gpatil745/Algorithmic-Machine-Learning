@@ -1,0 +1,1 @@
+The New York City Taxi Trip Duration Prediction project involves predicting the duration of taxi trips in the bustling city of New York. This repository contains the complete workflow of the project, including Exploratory Data Analysis (EDA), feature engineering, model building, and evaluation.
