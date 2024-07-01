@@ -1,7 +1,5 @@
 ## **Predicting Taxi Trip Duration in NYC**
 
-## **Overview**
-
 This repository contains the project for predicting taxi trip durations in New York City using exploratory data analysis (EDA), feature engineering, and machine learning models. The goal is to accurately estimate taxi trip durations based on attributes like pickup and drop-off locations, timestamps, and passenger counts.
 
 ## **Project Structure**
