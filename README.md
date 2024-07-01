@@ -1,37 +1,36 @@
 # **Predicting Taxi Trip Duration in NYC**
+Welcome to the GitHub repository for my project on predicting taxi trip durations in New York City. This project is part of my coursework at Rutgers Business School, where I am pursuing a Master's in Information Technology and Analytics. Below is an overview of the project, including the exploratory data analysis (EDA), feature engineering, model building, and evaluation processes.
 
-This repository contains the project for predicting taxi trip durations in New York City using exploratory data analysis (EDA), feature engineering, and machine learning models. The goal is to accurately estimate taxi trip durations based on attributes like pickup and drop-off locations, timestamps, and passenger counts.
+## **Project Overview**
+This project aims to predict the duration of taxi trips in New York City using historical trip data. The dataset includes attributes such as pickup and drop-off coordinates, trip duration, passenger count, and timestamps. The objective is to build a predictive model that can accurately forecast trip durations based on these features.
 
-## **Project Structure**
+## **Exploratory Data Analysis (EDA)**
+### Initial Data Inspection
+The project begins with loading the datasets into Pandas DataFrames, followed by an initial exploration to understand the data structure. This step involves checking data types, identifying missing values, and gaining a high-level overview of the dataset.
 
-### 1. Exploratory Data Analysis and Feature Engineering
+### Data Cleaning
+Inconsistent trip durations were identified by comparing calculated durations from timestamps with provided trip durations. Discrepancies were corrected to ensure data consistency.
 
-Dataset Overview: Historical records of NYC taxi trips with attributes such as pickup/drop-off coordinates, trip duration, passenger count, and timestamps.
-Initial Inspection: Loading datasets, examining data types, checking for missing values, and understanding dataset structure.
-Data Cleaning: Identifying and correcting inconsistent trip duration values.
-Temporal Analysis: Extracting features from timestamps (e.g., day of the week, hour of the day).
-Spatial Analysis and Clustering: Visualizing geographical distributions and using MiniBatchKMeans for clustering locations.
+### Temporal and Spatial Analysis
+Temporal patterns were analyzed by extracting features from timestamps, such as the day of the week and hour of the day. Spatial analysis involved visualizing pickup and drop-off locations, and clustering these locations using MiniBatchKMeans to create meaningful features for the predictive model.
 
-### 2. Model Building
+### Feature Engineering
+Key features such as distance between pickup and drop-off points, trip duration outliers, and weather data were engineered to enhance the model's predictive power. This comprehensive feature engineering process aimed to capture relevant temporal and spatial patterns in the data.
 
-Stacking Ensemble Technique: Combining multiple LightGBM Regressors to improve predictive performance.
-Model Architecture: A primary LightGBM Regressor and a meta-model LightGBM Regressor.
-Parameter Tuning: Using RandomizedSearchCV for parameter tuning to balance model complexity and generalization.
+## **Model Building**
+A stacking ensemble technique was chosen to leverage the strengths of multiple models. Two LightGBM Regressors were used: one as the primary model and the other as a meta-model. The meta-model was trained on the predictions of the primary model combined with the original features. Extensive parameter tuning was performed to optimize model performance.
 
-### 3. Model Evaluation and Validation
+## **Model Evaluation**
+The model's performance was evaluated using Mean Squared Logarithmic Error (MSLE) and R-squared metrics. The model demonstrated strong generalization on the validation set, with competitive scores. Challenges such as handling outliers and fine-tuning hyperparameters were addressed through robust preprocessing and careful parameter tuning.
 
-Evaluation Metrics: Mean Squared Logarithmic Error (MSLE) and R-squared.
-Generalization and Challenges: Ensuring robust performance on the validation set by handling outliers and fine-tuning hyperparameters.
+## **Visualizations**
+The project includes various visualizations to illustrate the analysis and modeling steps:
 
-### 4. Visualizations
+- Time series of trips
+- Geographical overlap of pickups and drop-offs
+- Distribution of trip durations
+- Distributions of categorical and discrete variables
+- Latitude and longitude distributions
 
-Time Series of Trips: Visualizing the number of trips over time.
-Geographical Overlap: Scatter plots showing pickup and drop-off locations.
-Distribution of Trip Duration: Histograms of trip durations.
-Categorical and Discrete Variables: Count plots of various variables.
-Latitude and Longitude Distributions: KDE plots for pickup and drop-off locations.
-
-### 5. Conclusion and Future Work
-
-Key Findings: Temporal and spatial patterns, along with weather data, were crucial for predictive accuracy.
-Future Work: Exploring additional features, experimenting with diverse models, and dynamic hyperparameter tuning.
+## **Conclusion and Future Work**
+The project successfully developed a robust predictive model for taxi trip durations in NYC. Key findings include the importance of temporal and spatial features and the effectiveness of the stacking ensemble technique. Future work could focus on further feature engineering, experimenting with a broader range of base models, and implementing dynamic hyperparameter tuning.
